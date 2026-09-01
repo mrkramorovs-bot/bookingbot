@@ -1,7 +1,6 @@
 ---
-paths:
-  - "**/*.ets"
-  - "**/*.ts"
+globs: ["**/*.ets", "**/*.ts"]
+alwaysApply: false
 ---
 # HarmonyOS / ArkTS Patterns
 

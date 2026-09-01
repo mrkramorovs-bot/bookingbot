@@ -1,9 +1,6 @@
 ---
-paths:
-  - "**/*.cs"
-  - "**/*.csx"
-  - "**/*.csproj"
-  - "**/appsettings*.json"
+globs: ["**/*.cs", "**/*.csx", "**/*.csproj", "**/appsettings*.json"]
+alwaysApply: false
 ---
 # C# Security
 

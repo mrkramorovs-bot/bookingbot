@@ -1,11 +1,6 @@
 ---
-paths:
-  - "**/nuxt.config.*"
-  - "**/app.config.*"
-  - "**/app.vue"
-  - "**/pages/**"
-  - "**/layouts/**"
-  - "**/middleware/**"
+globs: ["**/nuxt.config.*", "**/app.config.*", "**/app.vue", "**/pages/**", "**/layouts/**", "**/middleware/**"]
+alwaysApply: false
 ---
 
 # Nuxt Coding Style

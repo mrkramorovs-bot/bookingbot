@@ -1,11 +1,6 @@
 ---
-paths:
-  - "**/*.tsx"
-  - "**/*.jsx"
-  - "**/hooks/**/*.ts"
-  - "**/hooks/**/*.js"
-  - "**/use-*.ts"
-  - "**/use-*.tsx"
+globs: ["**/*.tsx", "**/*.jsx", "**/hooks/**/*.ts", "**/hooks/**/*.js", "**/use-*.ts", "**/use-*.tsx"]
+alwaysApply: false
 ---
 # React Hooks
 

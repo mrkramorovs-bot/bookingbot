@@ -1,12 +1,6 @@
 ---
-paths:
-  - "**/*.cpp"
-  - "**/*.hpp"
-  - "**/*.cc"
-  - "**/*.hh"
-  - "**/*.cxx"
-  - "**/*.h"
-  - "**/CMakeLists.txt"
+globs: ["**/*.cpp", "**/*.hpp", "**/*.cc", "**/*.hh", "**/*.cxx", "**/*.h", "**/CMakeLists.txt"]
+alwaysApply: false
 ---
 # C++ Patterns
 

@@ -1,8 +1,6 @@
 ---
-paths:
-  - "**/app/**/*.py"
-  - "**/fastapi/**/*.py"
-  - "**/*_api.py"
+globs: ["**/app/**/*.py", "**/fastapi/**/*.py", "**/*_api.py"]
+alwaysApply: false
 ---
 # FastAPI Rules
 

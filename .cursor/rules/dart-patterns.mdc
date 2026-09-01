@@ -1,7 +1,6 @@
 ---
-paths:
-  - "**/*.dart"
-  - "**/pubspec.yaml"
+globs: ["**/*.dart", "**/pubspec.yaml"]
+alwaysApply: false
 ---
 # Dart/Flutter Patterns
 

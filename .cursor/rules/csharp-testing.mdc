@@ -1,8 +1,6 @@
 ---
-paths:
-  - "**/*.cs"
-  - "**/*.csx"
-  - "**/*.csproj"
+globs: ["**/*.cs", "**/*.csx", "**/*.csproj"]
+alwaysApply: false
 ---
 # C# Testing
 

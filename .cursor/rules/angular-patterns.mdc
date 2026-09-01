@@ -1,10 +1,6 @@
 ---
-paths:
-  - "**/*.component.ts"
-  - "**/*.component.html"
-  - "**/*.service.ts"
-  - "**/*.store.ts"
-  - "**/*.routes.ts"
+globs: ["**/*.component.ts", "**/*.component.html", "**/*.service.ts", "**/*.store.ts", "**/*.routes.ts"]
+alwaysApply: false
 ---
 # Angular Patterns
 

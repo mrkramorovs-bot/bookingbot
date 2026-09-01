@@ -1,12 +1,6 @@
 ---
-paths:
-  - "**/*.fs"
-  - "**/*.fsx"
-  - "**/*.fsproj"
-  - "**/*.sln"
-  - "**/*.slnx"
-  - "**/Directory.Build.props"
-  - "**/Directory.Build.targets"
+globs: ["**/*.fs", "**/*.fsx", "**/*.fsproj", "**/*.sln", "**/*.slnx", "**/Directory.Build.props", "**/Directory.Build.targets"]
+alwaysApply: false
 ---
 # F# Hooks
 

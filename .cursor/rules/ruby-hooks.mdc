@@ -1,10 +1,6 @@
 ---
-paths:
-  - "**/*.rb"
-  - "**/*.rake"
-  - "**/Gemfile"
-  - "**/Gemfile.lock"
-  - "**/config/routes.rb"
+globs: ["**/*.rb", "**/*.rake", "**/Gemfile", "**/Gemfile.lock", "**/config/routes.rb"]
+alwaysApply: false
 ---
 # Ruby Hooks
 

@@ -1,9 +1,6 @@
 ---
-paths:
-  - "**/nuxt.config.*"
-  - "**/app.config.*"
-  - "**/server/**/*.ts"
-  - "**/*.vue"
+globs: ["**/nuxt.config.*", "**/app.config.*", "**/server/**/*.ts", "**/*.vue"]
+alwaysApply: false
 ---
 
 # Nuxt Hooks

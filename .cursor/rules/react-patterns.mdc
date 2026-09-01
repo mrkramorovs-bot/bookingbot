@@ -1,11 +1,6 @@
 ---
-paths:
-  - "**/*.tsx"
-  - "**/*.jsx"
-  - "**/components/**/*.ts"
-  - "**/components/**/*.js"
-  - "**/app/**/*.tsx"
-  - "**/pages/**/*.tsx"
+globs: ["**/*.tsx", "**/*.jsx", "**/components/**/*.ts", "**/components/**/*.js", "**/app/**/*.tsx", "**/pages/**/*.tsx"]
+alwaysApply: false
 ---
 # React Patterns
 

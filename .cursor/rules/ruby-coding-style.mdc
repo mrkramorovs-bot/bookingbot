@@ -1,10 +1,6 @@
 ---
-paths:
-  - "**/*.rb"
-  - "**/*.rake"
-  - "**/Gemfile"
-  - "**/*.gemspec"
-  - "**/config.ru"
+globs: ["**/*.rb", "**/*.rake", "**/Gemfile", "**/*.gemspec", "**/config.ru"]
+alwaysApply: false
 ---
 # Ruby Coding Style
 

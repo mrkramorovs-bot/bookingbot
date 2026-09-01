@@ -1,7 +1,6 @@
 ---
-paths:
-  - "**/*.spec.ts"
-  - "**/*.test.ts"
+globs: ["**/*.spec.ts", "**/*.test.ts"]
+alwaysApply: false
 ---
 # Angular Testing
 

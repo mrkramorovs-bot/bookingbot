@@ -1,6 +1,6 @@
 ---
-paths:
-  - "**/*.rs"
+globs: ["**/*.rs"]
+alwaysApply: false
 ---
 # Rust Coding Style
 

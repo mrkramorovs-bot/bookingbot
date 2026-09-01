@@ -1,9 +1,6 @@
 ---
-paths:
-  - "**/*.fs"
-  - "**/*.fsx"
-  - "**/*.fsproj"
-  - "**/appsettings*.json"
+globs: ["**/*.fs", "**/*.fsx", "**/*.fsproj", "**/appsettings*.json"]
+alwaysApply: false
 ---
 # F# Security
 

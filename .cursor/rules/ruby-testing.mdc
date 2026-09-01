@@ -1,11 +1,6 @@
 ---
-paths:
-  - "**/*.rb"
-  - "**/*.rake"
-  - "**/Gemfile"
-  - "**/test/**/*.rb"
-  - "**/spec/**/*.rb"
-  - "**/config/routes.rb"
+globs: ["**/*.rb", "**/*.rake", "**/Gemfile", "**/test/**/*.rb", "**/spec/**/*.rb", "**/config/routes.rb"]
+alwaysApply: false
 ---
 # Ruby Testing
 

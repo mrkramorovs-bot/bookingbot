@@ -1,11 +1,6 @@
 ---
-paths:
-  - "**/*.component.ts"
-  - "**/*.component.html"
-  - "**/*.service.ts"
-  - "**/*.directive.ts"
-  - "**/*.pipe.ts"
-  - "**/*.spec.ts"
+globs: ["**/*.component.ts", "**/*.component.html", "**/*.service.ts", "**/*.directive.ts", "**/*.pipe.ts", "**/*.spec.ts"]
+alwaysApply: false
 ---
 # Angular Hooks
 

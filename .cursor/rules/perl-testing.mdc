@@ -1,10 +1,6 @@
 ---
-paths:
-  - "**/*.pl"
-  - "**/*.pm"
-  - "**/*.t"
-  - "**/*.psgi"
-  - "**/*.cgi"
+globs: ["**/*.pl", "**/*.pm", "**/*.t", "**/*.psgi", "**/*.cgi"]
+alwaysApply: false
 ---
 # Perl Testing
 

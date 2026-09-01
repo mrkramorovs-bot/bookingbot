@@ -1,6 +1,6 @@
 ---
-paths:
-  - "**/*.vue"
+globs: ["**/*.vue"]
+alwaysApply: false
 ---
 
 # Vue Testing

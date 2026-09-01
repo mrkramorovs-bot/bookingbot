@@ -1,7 +1,6 @@
 ---
-paths:
-  - "**/*.cs"
-  - "**/*.csx"
+globs: ["**/*.cs", "**/*.csx"]
+alwaysApply: false
 ---
 # C# Coding Style
 

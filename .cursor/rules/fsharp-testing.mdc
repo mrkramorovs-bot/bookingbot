@@ -1,8 +1,6 @@
 ---
-paths:
-  - "**/*.fs"
-  - "**/*.fsx"
-  - "**/*.fsproj"
+globs: ["**/*.fs", "**/*.fsx", "**/*.fsproj"]
+alwaysApply: false
 ---
 # F# Testing
 

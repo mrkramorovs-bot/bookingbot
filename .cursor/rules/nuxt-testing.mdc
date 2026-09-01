@@ -1,10 +1,6 @@
 ---
-paths:
-  - "**/nuxt.config.*"
-  - "**/server/**/*.ts"
-  - "**/pages/**"
-  - "**/layouts/**"
-  - "**/middleware/**"
+globs: ["**/nuxt.config.*", "**/server/**/*.ts", "**/pages/**", "**/layouts/**", "**/middleware/**"]
+alwaysApply: false
 ---
 
 # Nuxt Testing

@@ -1,10 +1,6 @@
 ---
-paths:
-  - "**/*.ets"
-  - "**/*.ts"
-  - "**/module.json5"
-  - "**/oh-package.json5"
-  - "**/build-profile.json5"
+globs: ["**/*.ets", "**/*.ts", "**/module.json5", "**/oh-package.json5", "**/build-profile.json5"]
+alwaysApply: false
 ---
 # HarmonyOS / ArkTS Coding Style
 

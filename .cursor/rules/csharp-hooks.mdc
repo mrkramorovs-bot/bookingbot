@@ -1,11 +1,6 @@
 ---
-paths:
-  - "**/*.cs"
-  - "**/*.csx"
-  - "**/*.csproj"
-  - "**/*.sln"
-  - "**/Directory.Build.props"
-  - "**/Directory.Build.targets"
+globs: ["**/*.cs", "**/*.csx", "**/*.csproj", "**/*.sln", "**/Directory.Build.props", "**/Directory.Build.targets"]
+alwaysApply: false
 ---
 # C# Hooks
 

@@ -1,8 +1,6 @@
 ---
-paths:
-  - "**/*.ets"
-  - "**/*.ts"
-  - "**/ohosTest/**"
+globs: ["**/*.ets", "**/*.ts", "**/ohosTest/**"]
+alwaysApply: false
 ---
 # HarmonyOS / ArkTS Testing
 

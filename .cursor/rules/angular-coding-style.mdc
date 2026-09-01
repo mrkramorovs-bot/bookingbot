@@ -1,13 +1,6 @@
 ---
-paths:
-  - "**/*.component.ts"
-  - "**/*.component.html"
-  - "**/*.service.ts"
-  - "**/*.directive.ts"
-  - "**/*.pipe.ts"
-  - "**/*.guard.ts"
-  - "**/*.resolver.ts"
-  - "**/*.module.ts"
+globs: ["**/*.component.ts", "**/*.component.html", "**/*.service.ts", "**/*.directive.ts", "**/*.pipe.ts", "**/*.guard.ts", "**/*.resolver.ts", "**/*.module.ts"]
+alwaysApply: false
 ---
 # Angular Coding Style
 

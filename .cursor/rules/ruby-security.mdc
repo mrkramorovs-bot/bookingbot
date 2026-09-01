@@ -1,11 +1,6 @@
 ---
-paths:
-  - "**/*.rb"
-  - "**/*.rake"
-  - "**/Gemfile"
-  - "**/Gemfile.lock"
-  - "**/config/routes.rb"
-  - "**/config/credentials*.yml.enc"
+globs: ["**/*.rb", "**/*.rake", "**/Gemfile", "**/Gemfile.lock", "**/config/routes.rb", "**/config/credentials*.yml.enc"]
+alwaysApply: false
 ---
 # Ruby Security
 

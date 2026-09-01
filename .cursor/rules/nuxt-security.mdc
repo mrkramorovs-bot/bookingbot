@@ -1,8 +1,6 @@
 ---
-paths:
-  - "**/nuxt.config.*"
-  - "**/app.config.*"
-  - "**/server/**/*.ts"
+globs: ["**/nuxt.config.*", "**/app.config.*", "**/server/**/*.ts"]
+alwaysApply: false
 ---
 
 # Nuxt Security

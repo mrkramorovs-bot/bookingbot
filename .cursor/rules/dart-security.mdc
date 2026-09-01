@@ -1,9 +1,6 @@
 ---
-paths:
-  - "**/*.dart"
-  - "**/pubspec.yaml"
-  - "**/AndroidManifest.xml"
-  - "**/Info.plist"
+globs: ["**/*.dart", "**/pubspec.yaml", "**/AndroidManifest.xml", "**/Info.plist"]
+alwaysApply: false
 ---
 # Dart/Flutter Security
 

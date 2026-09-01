@@ -1,9 +1,6 @@
 ---
-paths:
-  - "**/*.component.ts"
-  - "**/*.component.html"
-  - "**/*.service.ts"
-  - "**/*.interceptor.ts"
+globs: ["**/*.component.ts", "**/*.component.html", "**/*.service.ts", "**/*.interceptor.ts"]
+alwaysApply: false
 ---
 # Angular Security
 
