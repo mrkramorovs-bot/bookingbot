@@ -2,7 +2,7 @@
 """Re-apply this repo's fixups to the checked-in ECC Cursor adapter.
 
 `install.sh --target cursor` produces a tree that Cursor only partly reads, so
-the install in .cursor/ carries five adjustments on top of upstream. Re-running
+the install in .cursor/ carries six adjustments on top of upstream. Re-running
 the installer overwrites them; run this afterwards to restore them.
 
 Every step is idempotent and reports what it did. Steps that no longer match
@@ -24,7 +24,8 @@ import shutil
 import sys
 
 CURSOR_DIR = pathlib.Path(".cursor")
-ADAPTER = CURSOR_DIR / "hooks" / "adapter.js"
+HOOKS_DIR = CURSOR_DIR / "hooks"
+ADAPTER = HOOKS_DIR / "adapter.js"
 HOOKS_JSON = CURSOR_DIR / "hooks.json"
 RULES_DIR = CURSOR_DIR / "rules"
 CODE_REVIEW_RULE = RULES_DIR / "common-code-review.mdc"
@@ -56,6 +57,30 @@ const path = require('path');"""
 PATCHED_ADAPTER_REQUIRES = """const { execFileSync } = require('child_process');
 const fs = require('fs');
 const path = require('path');"""
+
+# Two beforeShellExecution hooks reach into the runtime with a static relative
+# require instead of going through getPluginRoot(), so the adapter fix alone
+# leaves them throwing MODULE_NOT_FOUND on every shell command.
+STATIC_REQUIRE_HOOKS = (
+    (
+        HOOKS_DIR / "before-shell-execution-block-no-verify.js",
+        """const { readStdin, hookEnabled } = require('./adapter');
+const { run } = require('../../scripts/hooks/block-no-verify');""",
+        """const path = require('path');
+
+const { readStdin, hookEnabled, getPluginRoot } = require('./adapter');
+const { run } = require(path.join(getPluginRoot(), 'scripts', 'hooks', 'block-no-verify'));""",
+    ),
+    (
+        HOOKS_DIR / "before-shell-execution.js",
+        """const { readStdin, hookEnabled } = require('./adapter');
+const { splitShellSegments } = require('../../scripts/lib/shell-split');""",
+        """const path = require('path');
+
+const { readStdin, hookEnabled, getPluginRoot } = require('./adapter');
+const { splitShellSegments } = require(path.join(getPluginRoot(), 'scripts', 'lib', 'shell-split'));""",
+    ),
+)
 
 SESSION_ENV_HOOK = collections.OrderedDict([
     ("command", "node .cursor/scripts/hooks/cursor-session-env.js"),
@@ -115,6 +140,26 @@ def patch_hook_adapter(report):
     text = text.replace(UPSTREAM_ADAPTER_REQUIRES, PATCHED_ADAPTER_REQUIRES, 1)
     text = text.replace(UPSTREAM_PLUGIN_ROOT, PATCHED_PLUGIN_ROOT, 1)
     ADAPTER.write_text(text)
+
+
+def patch_static_hook_requires(report):
+    """Route the two hardcoded runtime requires through getPluginRoot()."""
+    for path, upstream, patched in STATIC_REQUIRE_HOOKS:
+        if not path.exists():
+            report.skip(f"{path} is missing")
+            continue
+
+        text = path.read_text()
+        if patched in text:
+            report.ok(f"{path} already requires the runtime via getPluginRoot()")
+            continue
+        if upstream not in text:
+            report.skip(f"{path} no longer matches the upstream shape this fixup patches")
+            continue
+
+        report.fixed(f"{path}: require the runtime via getPluginRoot() instead of ../../scripts")
+        if not report.check_only:
+            path.write_text(text.replace(upstream, patched, 1))
 
 
 def add_session_env_hook(report):
@@ -213,6 +258,7 @@ def main():
 
     report = Reporter(args.check)
     patch_hook_adapter(report)
+    patch_static_hook_requires(report)
     add_session_env_hook(report)
     convert_rule_scope(report)
     add_code_review_frontmatter(report)

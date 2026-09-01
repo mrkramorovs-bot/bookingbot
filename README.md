@@ -41,13 +41,14 @@ Third-party mirrors are unreviewed.
 
 ### Local adjustments
 
-`.cursor/` is not a verbatim copy of the installer output. Five adjustments make
+`.cursor/` is not a verbatim copy of the installer output. Six adjustments make
 the install work as documented under Cursor; see the commits on this branch for
 the reasoning behind each.
 
 | Adjustment | Why |
 |---|---|
 | `.cursor/hooks/adapter.js` resolves the hook runtime under `.cursor/` | Upstream looks for it at the project root, so six delegating hooks silently did nothing |
+| The two `beforeShellExecution` hooks require the runtime via `getPluginRoot()` | They hardcoded `../../scripts/...`, so both threw `MODULE_NOT_FOUND` on every shell command |
 | `cursor-session-env.js` runs first on `sessionStart` | Pins the memory root; the installer only emits this on its legacy language-based path |
 | 81 language rules use `globs:` instead of `paths:` | Cursor does not read `paths:`, so those rules never auto-attached |
 | `common-code-review.mdc` gained frontmatter | It shipped bare and was therefore unloadable |
