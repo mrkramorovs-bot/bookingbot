@@ -19,9 +19,11 @@ export function VacancyCard({ vacancy }: { vacancy: Vacancy }) {
         </Link>
       </h3>
 
-      <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-steel-600">{vacancy.summary}</p>
+      <p className="mt-2 mb-5 line-clamp-3 text-sm leading-relaxed text-steel-600">
+        {vacancy.summary}
+      </p>
 
-      <dl className="mt-5 grid grid-cols-2 gap-4 border-t border-steel-100 pt-5 text-sm">
+      <dl className="mt-auto grid grid-cols-2 gap-4 border-t border-steel-100 pt-5 text-sm">
         <div>
           <dt className="text-steel-500">Зарплата</dt>
           <dd className="mt-0.5 font-display font-bold text-ink-900">
