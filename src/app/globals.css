@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-manrope), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  --color-ink-950: #060b14;
+  --color-ink-900: #0a1120;
+  --color-ink-800: #111c31;
+  --color-ink-700: #1a2842;
+  --color-ink-600: #27395a;
+
+  --color-steel-50: #f6f8fb;
+  --color-steel-100: #eef2f7;
+  --color-steel-200: #dde4ee;
+  --color-steel-300: #c2cddd;
+  --color-steel-400: #93a3ba;
+  --color-steel-500: #6d7f99;
+  --color-steel-600: #52637d;
+  --color-steel-700: #3c4a5f;
+  --color-steel-800: #2a3547;
+
+  --color-brand-50: #eef5ff;
+  --color-brand-100: #d9e8ff;
+  --color-brand-200: #b9d5ff;
+  --color-brand-300: #7fb2ff;
+  --color-brand-400: #4a8ef5;
+  --color-brand-500: #1a6fe0;
+  --color-brand-600: #0f57bd;
+  --color-brand-700: #0d4596;
+  --color-brand-800: #0e3a78;
+
+  --color-flame-100: #fef3d7;
+  --color-flame-300: #fcd374;
+  --color-flame-400: #fabc3c;
+  --color-flame-500: #f59e0b;
+  --color-flame-600: #d97706;
+
+  --shadow-card: 0 1px 2px rgb(10 17 32 / 0.04), 0 12px 32px -12px rgb(10 17 32 / 0.14);
+  --shadow-lift: 0 2px 6px rgb(10 17 32 / 0.06), 0 24px 48px -20px rgb(10 17 32 / 0.28);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-white);
+    color: var(--color-ink-900);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Якорные ссылки не должны уезжать под липкую шапку. */
+  [id] {
+    scroll-margin-top: 7rem;
+  }
+
+  ::selection {
+    background-color: var(--color-brand-500);
+    color: white;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-brand-500);
+    outline-offset: 2px;
+  }
+}
+
+/* Технический паттерн для тёмных секций: тонкая сетка + мягкое свечение. */
+.bg-grid {
+  background-image:
+    linear-gradient(to right, rgb(255 255 255 / 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(255 255 255 / 0.05) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+.bg-glow {
+  background-image:
+    radial-gradient(ellipse 60% 55% at 15% 0%, rgb(26 111 224 / 0.35), transparent 60%),
+    radial-gradient(ellipse 50% 50% at 85% 10%, rgb(245 158 11 / 0.16), transparent 60%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
