@@ -42,3 +42,7 @@ next-env.d.ts
 
 # журнал заявок
 /data/*.jsonl
+
+# ECC install bookkeeping: records absolute source/destination paths and content
+# hashes from the machine that ran install.sh, so it is per-checkout state.
+.cursor/ecc-install-state.json
