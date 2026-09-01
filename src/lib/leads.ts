@@ -27,16 +27,14 @@ const name = z
 const optionalText = (max: number) =>
   z.string().trim().max(max, "Слишком длинный текст").optional().or(z.literal(""));
 
-/** Неотмеченный чекбокс браузер не отправляет вовсе, поэтому поле необязательное. */
+/** Неотмеченный чекбокс браузер не отправляет вовсе — обрабатываем и отсутствие значения. */
+const consentError = "Отметьте согласие на обработку персональных данных";
 const consent = z
-  .string()
-  .optional()
-  .refine((value) => value === "on" || value === "true", {
-    message: "Отметьте согласие на обработку персональных данных",
-  });
+  .string({ error: consentError })
+  .refine((value) => value === "on" || value === "true", { error: consentError });
 
-/** Скрытое поле-ловушка для ботов: должно оставаться пустым. */
-const honeypot = z.literal("").or(z.undefined());
+/** Скрытое поле-ловушка для ботов: заполненное значение отсекается до валидации. */
+const honeypot = z.string().optional();
 
 const base = z.object({
   kind: z.enum(leadKinds),
