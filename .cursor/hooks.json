@@ -3,6 +3,11 @@
   "hooks": {
     "sessionStart": [
       {
+        "command": "node .cursor/scripts/hooks/cursor-session-env.js",
+        "event": "sessionStart",
+        "description": "Pin ECC_AGENT_DATA_HOME for the session so memory stays out of ~/.claude"
+      },
+      {
         "command": "node .cursor/hooks/session-start.js",
         "event": "sessionStart",
         "description": "Load previous context and detect environment"
