@@ -51,6 +51,11 @@
     -webkit-font-smoothing: antialiased;
   }
 
+  /* Якорные ссылки не должны уезжать под липкую шапку. */
+  [id] {
+    scroll-margin-top: 7rem;
+  }
+
   ::selection {
     background-color: var(--color-brand-500);
     color: white;

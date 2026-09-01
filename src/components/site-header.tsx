@@ -52,7 +52,7 @@ export function SiteHeader() {
       <Container className="flex h-18 items-center justify-between gap-4 py-3">
         <Logo />
 
-        <nav className="hidden items-center gap-1 lg:flex" aria-label="Основная навигация">
+        <nav className="hidden items-center gap-0.5 lg:flex" aria-label="Основная навигация">
           {nav.map((item) => {
             const active = pathname === item.href || pathname.startsWith(`${item.href}/`);
             return (
@@ -61,7 +61,7 @@ export function SiteHeader() {
                 href={item.href}
                 aria-current={active ? "page" : undefined}
                 className={cn(
-                  "rounded-md px-3 py-2 text-sm font-medium transition-colors",
+                  "rounded-md px-2.5 py-2 text-sm font-medium whitespace-nowrap transition-colors",
                   active ? "bg-brand-50 text-brand-700" : "text-steel-700 hover:text-brand-600",
                 )}
               >
@@ -74,7 +74,7 @@ export function SiteHeader() {
         <div className="flex items-center gap-3">
           <a
             href={company.phone.href}
-            className="hidden font-display text-base font-bold text-ink-900 hover:text-brand-600 sm:block"
+            className="hidden font-display text-base font-bold whitespace-nowrap text-ink-900 hover:text-brand-600 sm:block lg:hidden xl:block"
           >
             {company.phone.display}
           </a>
