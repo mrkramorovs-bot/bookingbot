@@ -6,6 +6,7 @@
  */
 
 const { execFileSync } = require('child_process');
+const fs = require('fs');
 const path = require('path');
 
 const MAX_STDIN = 1024 * 1024;
@@ -21,8 +22,20 @@ function readStdin() {
   });
 }
 
+// The shared hook runtime sits at <root>/scripts/hooks. That root is the repo
+// root when these hooks run inside the ECC checkout, but `--target cursor`
+// installs the runtime under .cursor/, so probe both layouts.
 function getPluginRoot() {
-  return path.resolve(__dirname, '..', '..');
+  const cursorDir = path.resolve(__dirname, '..');
+  const projectRoot = path.resolve(cursorDir, '..');
+
+  for (const candidate of [cursorDir, projectRoot]) {
+    if (fs.existsSync(path.join(candidate, 'scripts', 'hooks'))) {
+      return candidate;
+    }
+  }
+
+  return projectRoot;
 }
 
 function transformToClaude(cursorInput, overrides = {}) {
